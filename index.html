@@ -5,14 +5,84 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <link rel="stylesheet" href="/css/index.css">
     <title>Fronted Mentor | Age calculator app</title>
 </head>
 <body>
-    
+    <section class="container">
+        <article class="articleTable">
+            <table class="tableFormulario">
+                <thead>
+                    <tr class="trTitulo">
+                        <th class="th">DAY</th>
+                        <th class="th">MONTH</th>
+                        <th class="th">YEAR</th>
+                        
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="number" id="inputDay" class="inputFecha" placeholder="DD">
+                        </td>
+
+                        <td>
+                            <input type="number" id="inputMonth" class="inputFecha" placeholder="MM">
+                        </td>
+
+                        <td>
+                            <input type="number" id="inputYear" class="inputFecha" placeholder="YYYY">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="th">
+                            <p id="errorDay"></p>
+                        </td>
+
+                        <td class="th">
+                            <p id="errorMonth"></p>
+                        </td>
+
+                        <td class="th">
+                            <p id="errorYear"></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+
+        <article class="articleButton">
+            <div class="line"></div>
+            <button class="buttonEnviar" id="buttonEnviar">
+                <img src="/assets/images/icon-arrow.svg" class="imgArrow" alt="arrow">
+            </button>
+        </article>
+
+        <article class="articleEdad">
+            <div>
+                <span id="numYears">- -</span>
+                <p class="p">years</p>
+            </div>
+
+            <div>
+                <span id="numMonths">- -</span>
+                <p class="p">months</p>
+            </div>
+
+            <div>
+                <span id="numDays">- -</span>
+                <p class="p">days</p>
+            </div>
+        </article>
+    </section>
 
     <div class="attribution">
         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
         Coded by <a href="#">Sara</a>.
     </div>
+
+    <script src="/js/index.js"></script>
 </body>
 </html>

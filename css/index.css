@@ -1,0 +1,97 @@
+@media (width: 375px){}
+
+@media (width: 1440px){
+    /*---------- GENERAL ----------*/
+    @import url('https://fonts.google.com/specimen/Poppins');
+
+    *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body{
+        background-color: hsl(0, 0%, 94%);
+        font-family: "Poppins", sans-serif;
+    }
+
+    /*---------- ARITCLE TABLE ----------*/
+    .container{
+        background-color: hsl(0, 0%, 100%);
+        width: 50%;
+        padding: 2rem;
+        margin: 0 auto;
+        margin-top: 5em;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 50px;
+    }
+
+    .tableFormulario{
+        width: 80%;
+    }
+
+    .th{
+        text-align: left;
+        color: hsl(0, 1%, 44%);
+        padding-bottom: 0.5rem;
+    }
+
+    .inputFecha{
+        padding: 0.5rem;
+        width: 85%;
+        border-radius: 5px;
+        border: 1px solid hsl(0, 0%, 86%);
+        font-weight: bold;
+        font-size: 32px;
+        color: black
+    }
+
+    /*---------- ARROW ----------*/
+    .articleButton{
+        display: flex;
+        align-items: center;
+    }
+
+    .buttonEnviar{
+        border: hidden;
+        border-radius: 50px;
+    }
+
+    .line{
+        width: 100%;
+        height: 2px;
+        background-color: lightgray;
+    }
+
+    .imgArrow{
+        background-color: #8000FF;
+        border-radius: 50px;
+        padding: 1rem;
+    }
+
+    /*---------- ARTICLE EDAD ----------*/
+
+    .articleEdad > div{
+        display: flex;
+        font-size: 60px;
+        font-weight: bold;
+    }
+
+    span{
+        color: #8000FF;
+        margin-right: 0.5em;
+    }
+
+    /*---------- ETIQUETA ----------*/
+    .attribution{
+        text-align: center;
+        margin-top: 1em;
+    }
+
+    /*---------- JAVASCRIPT ----------*/
+    #errorDay, #errorMonth, #errorYear{
+        color: hsl(0, 100%, 67%);
+    }
+}
