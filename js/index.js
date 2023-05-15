@@ -76,11 +76,4 @@ function calcularEdad(){
     let mesActual = fechaActual.getMonth() + 1;
     let yearActual = new Date().getFullYear();
 
-    let yearFinal = yearActual - year.value;
-    let monthFinal = mesActual - month.value;
-    let dayFinal = diaActual - day.value;
-
-    console.log(yearFinal)
-    console.log(monthFinal);
-    console.log(dayFinal)
 }
