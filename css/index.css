@@ -1,4 +1,4 @@
-@media (min-width: 375px) and (max-width: 1024px){
+@media (min-width: 375px) and (max-width: 1440px){
     /*---------- GENERAL ----------*/
     @import url('https://fonts.google.com/specimen/Poppins');
 
@@ -98,7 +98,7 @@
     }
 }
 
-@media (min-width: 1200px) and (max-width: 1440px){
+@media (min-width: 1440px){
     /*---------- GENERAL ----------*/
     @import url('https://fonts.google.com/specimen/Poppins');
 
