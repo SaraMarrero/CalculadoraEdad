@@ -16,20 +16,22 @@ button.disabled = true;
 
 let meses = [
     {
-        Enero: 31,
-        Febrero: 28,
-        Marzo: 31,
-        Abril: 30,
-        Mayo: 31,
-        Junio: 30,
-        Julio: 31,
-        Agosto: 31,
-        Septiembre: 30,
-        Octubre: 31,
-        Noviembre: 30,
-        Diciembre: 31
+        1: 31,
+        2: 28,
+        3: 31,
+        4: 30,
+        5: 31,
+        6: 30,
+        7: 31,
+        8: 31,
+        9: 30,
+        10: 31,
+        11: 30,
+        12: 31
     }
 ]
+
+let arrayDia = [];
 
 // Eventos
 button.addEventListener('click', calcularEdad);
@@ -37,10 +39,11 @@ button.addEventListener('click', calcularEdad);
 // Funciones - eventos
 // Valida el campo del día
 day.addEventListener('blur', () => {
+    
     // Comprueba que se rellene el campo del día
     if(day.value.length >= 1){
         // Comprueba que es un día válido
-        if(day.value < 1 || day.value > 31){
+        if(day.value >= arrayDia.toString()){
             day.style.border = '1px solid hsl(0, 100%, 67%)';
             errorDay.textContent = 'Must be a valid day';
         } else{
@@ -56,6 +59,11 @@ day.addEventListener('blur', () => {
 
 // Valida el campo del mes
 month.addEventListener('blur', () => {
+
+    meses.forEach(e => {
+        arrayDia.push(e[month.value])
+    });
+
     // Comprueba que se rellene el campo del mes
     if(month.value.length >= 1){
         // Comprueba que es un mes válido
