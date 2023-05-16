@@ -86,12 +86,6 @@
         margin-right: 0.5em;
     }
 
-    /*---------- ETIQUETA ----------*/
-    .attribution{
-        text-align: center;
-        margin-top: 1em;
-    }
-
     /*---------- JAVASCRIPT ----------*/
     #errorDay, #errorMonth, #errorYear{
         color: hsl(0, 100%, 67%);
@@ -180,12 +174,6 @@
     span{
         color: #8000FF;
         margin-right: 0.5em;
-    }
-
-    /*---------- ETIQUETA ----------*/
-    .attribution{
-        text-align: center;
-        margin-top: 1em;
     }
 
     /*---------- JAVASCRIPT ----------*/
