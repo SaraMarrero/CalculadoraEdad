@@ -12,7 +12,7 @@ const numMonth = document.getElementById('numMonths');
 const numYear = document.getElementById('numYears');
 
 const button = document.getElementById('buttonEnviar');
-// button.disabled = true;
+button.disabled = true;
 
 // Eventos
 button.addEventListener('click', calcularEdad);
@@ -26,6 +26,7 @@ day.addEventListener('blur', () => {
         } else{
             day.style.border = '1px solid hsl(0, 0%, 86%)';
             errorDay.textContent = '';
+            activarButton();
         }
     } else{
         day.style.border = '1px solid hsl(0, 100%, 67%)';
@@ -42,6 +43,7 @@ month.addEventListener('blur', () => {
         } else{
             month.style.border = '1px solid hsl(0, 0%, 86%)';
             errorMonth.textContent = '';
+            activarButton();
         }
     } else{
         month.style.border = '1px solid hsl(0, 100%, 67%)';
@@ -54,12 +56,13 @@ year.addEventListener('blur', () => {
     let yearActual = new Date().getFullYear();
 
     if(year.value.length >= 1){
-        if(year.value >= yearActual){
+        if(year.value > yearActual){
             year.style.border = '1px solid hsl(0, 100%, 67%)';
             errorYear.textContent = 'Must be a valid year';
         } else{
             year.style.border = '1px solid hsl(0, 0%, 86%)';
             errorYear.textContent = '';
+            activarButton();
         }
     } else{
         year.style.border = '1px solid hsl(0, 100%, 67%)';
@@ -91,4 +94,12 @@ function calcularEdad(){
 
     numYear.textContent = '';
     numYear.append(yearFinal);
+}
+
+function activarButton(){
+    if(year.value.length >= 1 && month.value >= 1 && day.value >= 1){
+        button.disabled = false;
+    } else{
+        button.disabled = true;
+    }
 }
