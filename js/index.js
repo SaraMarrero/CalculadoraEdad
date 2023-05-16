@@ -12,6 +12,7 @@ const numMonth = document.getElementById('numMonths');
 const numYear = document.getElementById('numYears');
 
 const button = document.getElementById('buttonEnviar');
+// button.disabled = true;
 
 // Eventos
 button.addEventListener('click', calcularEdad);
@@ -50,7 +51,6 @@ month.addEventListener('blur', () => {
 
 // Valida el campo del año
 year.addEventListener('blur', () => {
-
     let yearActual = new Date().getFullYear();
 
     if(year.value.length >= 1){
@@ -69,11 +69,26 @@ year.addEventListener('blur', () => {
 
 // Funciones
 function calcularEdad(){
-    // Obtiene la fecha actual
+
+    // Obtiene la fecha actual y la de nacimiento
     let fechaActual = new Date();
+    let fechaNacimiento = new Date(year.value, month.value - 1, day.value);
 
-    let diaActual = fechaActual.getDate();
-    let mesActual = fechaActual.getMonth() + 1;
-    let yearActual = new Date().getFullYear();
+    // Calcula la diferencia en milisegundos entre las dos fechas
+    let restaFechas = fechaActual - fechaNacimiento;
 
+    // Pasa de milisegundos a años, meses y días
+    let yearFinal = Math.floor(restaFechas / (1000 * 60 * 60 * 24 * 365.25));
+    let monthFinal = Math.floor((restaFechas % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30.4375));
+    let dayFinal = Math.floor((restaFechas % (1000 * 60 * 60 * 24 * 30.4375)) / (1000 * 60 * 60 * 24));
+
+    // Se añade al html
+    numDay.textContent = '';
+    numDay.append(dayFinal);
+
+    numMonth.textContent = '';
+    numMonth.append(monthFinal);
+
+    numYear.textContent = '';
+    numYear.append(yearFinal);
 }
