@@ -47,6 +47,7 @@ function validarDay(){
         if(arrayDia.toString() !== ''){
             if(day.value >= arrayDia.toString()){
                 day.style.border = '1px solid hsl(0, 100%, 67%)';
+                numDay.innerHTML = `<span id="numDay">- -</span>`;
                 errorDay.textContent = 'Must be a valid day';
             } else{
                 day.style.border = '1px solid hsl(0, 0%, 86%)';
@@ -128,15 +129,17 @@ function calcularEdad(){
 
 // Comprueba que todo está correcto antes de mostrar el resultado
 function activarButton(){
-    if(year.value > yearActual && month.value < 1 || month.value > 12 && day.value >= arrayDia.toString()){
+
+    if((year.value < yearActual) && (month.value > 1 || month.value < 12) && (day.value <= arrayDia.toString())){
         calcularEdad();
     } else{
-        validarDay();
-        validarMonth();
-        validarYear();
+        validarDay()
+        validarMonth()
+        validarYear()
 
         numDay.innerHTML = `<span id="numDay">- -</span>`;
         numMonth.innerHTML = `<span id="numMonth">- -</span>`;
         numYear.innerHTML = `<span id="numYears">- -</span>`;
+
     }
 }
