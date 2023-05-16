@@ -52,7 +52,6 @@ function validarDay(){
             } else{
                 day.style.border = '1px solid hsl(0, 0%, 86%)';
                 errorDay.textContent = '';
-                // activarButton();
             }
         }
     } else{
@@ -75,7 +74,6 @@ function validarMonth(){
         } else{
             month.style.border = '1px solid hsl(0, 0%, 86%)';
             errorMonth.textContent = '';
-            // activarButton();
         }
     } else{
         month.style.border = '1px solid hsl(0, 100%, 67%)';
@@ -95,7 +93,6 @@ function validarYear(){
         } else{
             year.style.border = '1px solid hsl(0, 0%, 86%)';
             errorYear.textContent = '';
-            // activarButton();
         }
     } else{
         year.style.border = '1px solid hsl(0, 100%, 67%)';
