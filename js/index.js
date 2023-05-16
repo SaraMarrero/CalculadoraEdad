@@ -17,9 +17,12 @@ button.disabled = true;
 // Eventos
 button.addEventListener('click', calcularEdad);
 
+// Funciones - eventos
 // Valida el campo del día
 day.addEventListener('blur', () => {
+    // Comprueba que se rellene el campo del día
     if(day.value.length >= 1){
+        // Comprueba que es un día válido
         if(day.value < 1 || day.value > 31){
             day.style.border = '1px solid hsl(0, 100%, 67%)';
             errorDay.textContent = 'Must be a valid day';
@@ -36,7 +39,9 @@ day.addEventListener('blur', () => {
 
 // Valida el campo del mes
 month.addEventListener('blur', () => {
+    // Comprueba que se rellene el campo del mes
     if(month.value.length >= 1){
+        // Comprueba que es un mes válido
         if(month.value < 1 || month.value > 12){
             month.style.border = '1px solid hsl(0, 100%, 67%)';
             errorMonth.textContent = 'Must be a valid month';
@@ -55,7 +60,9 @@ month.addEventListener('blur', () => {
 year.addEventListener('blur', () => {
     let yearActual = new Date().getFullYear();
 
+    // Comprueba que se rellene el campo del año
     if(year.value.length >= 1){
+        // Comprueba que es un año válido
         if(year.value > yearActual){
             year.style.border = '1px solid hsl(0, 100%, 67%)';
             errorYear.textContent = 'Must be a valid year';
@@ -70,7 +77,6 @@ year.addEventListener('blur', () => {
     }
 });
 
-// Funciones
 function calcularEdad(){
 
     // Obtiene la fecha actual y la de nacimiento
@@ -96,6 +102,7 @@ function calcularEdad(){
     numYear.append(yearFinal);
 }
 
+// Activa el botón cuando se rellenen todos los campos
 function activarButton(){
     if(year.value.length >= 1 && month.value >= 1 && day.value >= 1){
         button.disabled = false;
