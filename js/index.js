@@ -12,8 +12,9 @@ const numMonth = document.getElementById('numMonths');
 const numYear = document.getElementById('numYears');
 
 const button = document.getElementById('buttonEnviar');
-button.disabled = true;
 
+let yearActual = new Date().getFullYear();
+let arrayDia = [];
 let meses = [
     {
         1: 31,
@@ -31,41 +32,41 @@ let meses = [
     }
 ]
 
-let arrayDia = [];
-
 // Eventos
-button.addEventListener('click', calcularEdad);
+day.addEventListener('blur', validarDay);
+month.addEventListener('blur', validarMonth);
+year.addEventListener('blur', validarYear);
+button.addEventListener('click', activarButton);
 
 // Funciones - eventos
 // Valida el campo del día
-day.addEventListener('blur', () => {
-    
+function validarDay(){
     // Comprueba que se rellene el campo del día
     if(day.value.length >= 1){
         // Comprueba que es un día válido
-        if(day.value >= arrayDia.toString()){
-            day.style.border = '1px solid hsl(0, 100%, 67%)';
-            errorDay.textContent = 'Must be a valid day';
-        } else{
-            day.style.border = '1px solid hsl(0, 0%, 86%)';
-            errorDay.textContent = '';
-            activarButton();
+        if(arrayDia.toString() !== ''){
+            if(day.value >= arrayDia.toString()){
+                day.style.border = '1px solid hsl(0, 100%, 67%)';
+                errorDay.textContent = 'Must be a valid day';
+            } else{
+                day.style.border = '1px solid hsl(0, 0%, 86%)';
+                errorDay.textContent = '';
+                // activarButton();
+            }
         }
     } else{
         day.style.border = '1px solid hsl(0, 100%, 67%)';
         errorDay.textContent = 'This field is required';
     }
-});
+};
 
 // Valida el campo del mes
-month.addEventListener('blur', () => {
-
-    meses.forEach(e => {
-        arrayDia.push(e[month.value])
-    });
+function validarMonth(){
 
     // Comprueba que se rellene el campo del mes
     if(month.value.length >= 1){
+        meses.forEach(e => {arrayDia.push(e[month.value])});
+
         // Comprueba que es un mes válido
         if(month.value < 1 || month.value > 12){
             month.style.border = '1px solid hsl(0, 100%, 67%)';
@@ -73,17 +74,16 @@ month.addEventListener('blur', () => {
         } else{
             month.style.border = '1px solid hsl(0, 0%, 86%)';
             errorMonth.textContent = '';
-            activarButton();
+            // activarButton();
         }
     } else{
         month.style.border = '1px solid hsl(0, 100%, 67%)';
         errorMonth.textContent = 'This field is required';
     }
-});
+};
 
 // Valida el campo del año
-year.addEventListener('blur', () => {
-    let yearActual = new Date().getFullYear();
+function validarYear(){
 
     // Comprueba que se rellene el campo del año
     if(year.value.length >= 1){
@@ -94,16 +94,15 @@ year.addEventListener('blur', () => {
         } else{
             year.style.border = '1px solid hsl(0, 0%, 86%)';
             errorYear.textContent = '';
-            activarButton();
+            // activarButton();
         }
     } else{
         year.style.border = '1px solid hsl(0, 100%, 67%)';
         errorYear.textContent = 'This field is required';
     }
-});
+};
 
 function calcularEdad(){
-
     // Obtiene la fecha actual y la de nacimiento
     let fechaActual = new Date();
     let fechaNacimiento = new Date(year.value, month.value - 1, day.value);
@@ -127,11 +126,17 @@ function calcularEdad(){
     numYear.append(yearFinal);
 }
 
-// Activa el botón cuando se rellenen todos los campos
+// Comprueba que todo está correcto antes de mostrar el resultado
 function activarButton(){
-    if(year.value.length >= 1 && month.value >= 1 && day.value >= 1){
-        button.disabled = false;
+    if(year.value > yearActual && month.value < 1 || month.value > 12 && day.value >= arrayDia.toString()){
+        calcularEdad();
     } else{
-        button.disabled = true;
+        validarDay();
+        validarMonth();
+        validarYear();
+
+        numDay.innerHTML = `<span id="numDay">- -</span>`;
+        numMonth.innerHTML = `<span id="numMonth">- -</span>`;
+        numYear.innerHTML = `<span id="numYears">- -</span>`;
     }
 }
