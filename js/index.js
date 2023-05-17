@@ -17,27 +17,27 @@ let yearActual = new Date().getFullYear();
 let arrayDia = [];
 let meses = [
     {
-        1: 31,
-        2: 28,
-        3: 31,
-        4: 30,
-        5: 31,
-        6: 30,
-        7: 31,
-        8: 31,
-        9: 30,
-        01: 31,
-        02: 28,
-        03: 31,
-        04: 30,
-        05: 31,
-        06: 30,
-        07: 31,
-        08: 31,
-        09: 30,
-        10: 31,
-        11: 30,
-        12: 31,
+        "1": 31,
+        "2": 28,
+        "3": 31,
+        "4": 30,
+        "5": 31,
+        "6": 30,
+        "7": 31,
+        "8": 31,
+        "9": 30,
+        "01": 31,
+        "02": 28,
+        "03": 31,
+        "04": 30,
+        "05": 31,
+        "06": 30,
+        "07": 31,
+        "08": 31,
+        "09": 30,
+        "10": 31,
+        "11": 30,
+        "12": 31,
     }
 ]
 
@@ -135,7 +135,7 @@ function calcularEdad(){
 
 // Comprueba que todo está correcto antes de mostrar el resultado
 function activarButton(){
-
+    
     if((year.value < yearActual) && (month.value > 1 || month.value < 12) && (day.value <= arrayDia.toString())){
         calcularEdad();
     } else{
