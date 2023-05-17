@@ -144,6 +144,5 @@ function activarButton(){
         numDay.innerHTML = `<span id="numDay">- -</span>`;
         numMonth.innerHTML = `<span id="numMonth">- -</span>`;
         numYear.innerHTML = `<span id="numYears">- -</span>`;
-
     }
 }
