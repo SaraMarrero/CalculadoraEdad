@@ -71,7 +71,6 @@ function validarDay(){
 
 // Valida el campo del mes
 function validarMonth(){
-
     // Comprueba que se rellene el campo del mes
     if(month.value.length >= 1){
         meses.forEach(e => {arrayDia.push(e[month.value])});
@@ -92,7 +91,6 @@ function validarMonth(){
 
 // Valida el campo del año
 function validarYear(){
-
     // Comprueba que se rellene el campo del año
     if(year.value.length >= 1){
         // Comprueba que es un año válido
@@ -135,7 +133,7 @@ function calcularEdad(){
 
 // Comprueba que todo está correcto antes de mostrar el resultado
 function activarButton(){
-    
+
     if((year.value < yearActual) && (month.value > 1 || month.value < 12) && (day.value <= arrayDia.toString())){
         calcularEdad();
     } else{
