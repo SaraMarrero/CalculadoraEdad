@@ -3,7 +3,7 @@ Este pequeño proyecto es una pequeña web que dando una fecha de nacimiento cal
 
 La idea del proyecto ha sido sacada de la web Frontend Mentor.
 
-# Página principal
+# 📸 Página principal
 ![Imagen principal](/design/imgIndex.jpg)
 
 # 🪛Tecnologías
