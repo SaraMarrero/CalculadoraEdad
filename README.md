@@ -13,7 +13,7 @@ Para llevar a cabo la realización de este proyecto, he utilizado:
 * Javascript
 * Github
 
-# Autora
+# 👩🏻‍💻Autora
 * Sara Marrero Miranda
 
 [Perfil de Frontend Mentor](https://www.frontendmentor.io/profile/SaraMarrero)
